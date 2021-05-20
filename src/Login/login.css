@@ -1,0 +1,64 @@
+.login_signup{
+    width: 600px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    margin-left: 390px;
+    margin-top: 47px;
+    border-radius: 2px;
+    display: none;
+}
+.login_inner{
+    height: 500px;
+    width: 250px;
+    background-color: #2874F0;
+    position: absolute;
+    
+}
+
+.login_console{
+   
+    width: 350px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    margin-left: 250px;
+}
+
+.login_span{
+    color:white;
+    font-size: 27px;
+    font-weight: 600;
+    padding-top: 28px;
+    margin-left: -96px;
+    position: absolute;
+}
+/* .recommendation{
+    padding-top: 28px;
+    margin-left: -96px;
+    width: 100px;
+    height: 30px;  
+} */
+
+.recommendation_tag{
+position: absolute;
+color:#D0D5DC;
+font-weight: 600;
+width: 147px;
+height: 20px;
+padding-top: 81px;
+text-align: left;
+margin-left: -95px;
+}
+
+.graphic{
+background-size: 251px 160px;
+background-image: url("graphic.png");
+background-position: center;
+background-repeat: no-repeat;
+position: absolute;
+width: 300px;
+height: 130px;
+margin-top: 320px;
+margin-left: -23px;
+}
