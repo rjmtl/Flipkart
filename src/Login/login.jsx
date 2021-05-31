@@ -2,8 +2,10 @@ import "./login.css";
 import { useState, useEffect } from "react";
 import {withRouter} from "react-router-dom";
 
-function Login() {
-    var temp_data=JSON.parse(localStorage["UserInfo"]);
+function Login({set_isloggedIn}) {
+    var keys=Object.keys(localStorage);
+    var temp_data=[];
+    if(localStorage.UserInfo && localStorage.UserInfo.length) temp_data=JSON.parse(localStorage.UserInfo);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setname] = useState("");
@@ -18,8 +20,10 @@ function Login() {
             email: email,
             password: password
         };
+        
         for(let i=0;i<temp_data.length;i++){
             let temp=temp_data[i];
+            
             if(value.email===temp.email && value.password===temp.password){
                 flag=true;
                 localStorage.setItem("CurrentUser",temp.name);
@@ -29,7 +33,8 @@ function Login() {
 
         if(flag){
             alert("Login Successful")
-            // this.props.history.push("/");
+            set_isloggedIn(true);
+            document.querySelector('.login').classList.remove('visible');
         }
         else{
             alert("Invalid User")
@@ -57,9 +62,13 @@ function Login() {
     useEffect(()=>{
         setter(JSON.parse(localStorage["UserInfo"]));
     },[]);
+
+    
     useEffect(()=>{
+        
         localStorage.setItem("UserInfo",JSON.stringify(data_Arr));
     },[data_Arr]);
+
 
     
 

@@ -1,34 +1,33 @@
-import { useContext } from "react";
+import { withRouter } from "react-router-dom";
 import "./Login/login.css";
+import {useEffect, useState} from "react"
+function Homepage({isloggedIn,set_isloggedIn,history}) {
+    
 
-function Homepage() {
-
+    
+    
     return (
         <div className="App">   <div className="navbar">
             <button className="flipkart_logo"></button>
             <input className="search_bar" placeholder="Search for products, brands and more"></input>
-            <button className="login_button"
+           { isloggedIn ? (<button className="login_button" onClick={()=>{
+               localStorage.removeItem("CurrentUser");
+               set_isloggedIn(false);
+            }}
+            >Logout
+        </button>) : (<button className="login_button"
                 onClick={() => {
                     document.querySelector(".login").classList.add('visible');
                     document.querySelector('body').classList.toggle('modal-open');
-                    // document.querySelector('.inner_signup_panel').classList.remove('hidden');
-                    // document.querySelector('.inner_login_panel').classList.remove('visible');
-                    // document.querySelector('.signup_visible').classList.remove('hidden');
-                    // document.querySelector('.login_visible').classList.remove('visible');
                 }}
 
             >Login
-        </button>
-            <button className="cart">Cart</button>
-            
-            {/* <span className="user_name">{localStorage.CurrentUser}</span> */}
-
-     
-
+        </button>)
+           }<img ></img> <button onClick={()=>{history.push("/checkout")}} className="cart">Cart</button>
     </div>
         </div>
 
     )
 }
 
-export default Homepage;
+export default withRouter(Homepage);
