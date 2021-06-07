@@ -1,5 +1,5 @@
 .login{
-    display:none; 
+    display:none;
 }
 
 .login.visible{
@@ -7,11 +7,11 @@
     position: absolute;
     background-color:rgba(0, 0, 0, 0.6);
     width: 100vw;
-    height: 100vh; 
+    height: 100vh;
     opacity: 10;
     /* pointer-events: none;
     user-select: none; */
-       
+
 }
 body.modal-open {
     height: 100vh;
@@ -48,8 +48,7 @@ cursor: pointer;
     background-color: rgb(255, 255, 255);
     position: absolute;
     padding-left: 20%;
-   
-    /* border-radius: 2%;     */
+     /* border-radius: 2%;     */
 }
 
 .login_visible{
@@ -74,19 +73,19 @@ cursor: pointer;
     width: 250px;
     background-color: #2874F0;
     position: absolute;
-    
-    
+
+
 }
 
 .login_console{
-   
+
     width: 350px;
     height: 460px;
     background-color: rgb(255, 255, 255);
     position: absolute;
     margin-left: 250px;
-    
-    
+
+
 }
 
 .login_span{
@@ -96,20 +95,20 @@ cursor: pointer;
     padding-top: 28px;
     padding-left: 4%;
     position: absolute;
-    
+
 }
 /* .recommendation{
     padding-top: 28px;
     margin-left: -96px;
     width: 100px;
-    height: 30px;  
+    height: 30px;
 } */
 
 .cross{
     color:white;
     font-size: 40px;
     width: 80%;
-    height: 10%; 
+    height: 10%;
     cursor:pointer;
 }
 
@@ -180,7 +179,7 @@ display: block;
     border: 1px solid #dbdbdb;
     margin-left: 600px;
     margin-top: 12px;
-   
+
 }
 
 .inner_login_panel.hidden{
@@ -204,12 +203,12 @@ display: block;
 .login_email{
     margin-top: 5%;
     width: 90%;
-    height: 8%;  
+    height: 8%;
     font-size: 16px;
     border: none;
     border-bottom: 1px solid #e0e0e0;
-    
-    
+
+
 }
 
 .login_email:focus{
@@ -223,7 +222,7 @@ display: block;
 .login_password{
     margin-top: 5%;
     width: 90%;
-    height: 8%;  
+    height: 8%;
     font-size: 16px;
     border: none;
     border-bottom: 1px solid #e0e0e0;
@@ -235,7 +234,7 @@ display: block;
 }
 .login_panel_button{
     width: 80%;
-    height: 15%;  
+    height: 15%;
     background-color: #FB641B;
     color:#FFFFFF;
     font-weight: 550;
@@ -246,7 +245,7 @@ display: block;
 
 .existing_user{
     width: 80%;
-    height: 15%;  
+    height: 15%;
     background-color: #ffffff;
     color:rgb(40,116,240);
     font-weight: 550;

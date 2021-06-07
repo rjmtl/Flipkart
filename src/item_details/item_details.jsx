@@ -2,54 +2,71 @@ import React,{useState,useEffect} from "react";
 import {withRouter} from "react-router-dom"
 import "./item_details.css"
 
+export const Cart=React.createContext();
+
 function Item_Details(props) {
-    console.log("Item Details props",props);
-    
+
+    console.log("Item Details props",props.match.params.id);
     const [inCart,setInCart]=useState(false);
     const [currentItem,Set_currentItem]=useState([]);
+    const [temp,setdata]=useState();
+    useEffect(() => {
+        fetchdata();
+      }, []);
+
+    const fetchdata = async () => {
+        const data = await fetch(`https://fakestoreapi.com/products/${props.match.params.id}`);
+        const items = await data.json();
+        console.log(items);
+        setdata(items);
+      };
+
+
 
     const cart_submitHandle=()=>{
-        
-        var temp_product=props.location.state;
+        var temp_product=temp;
+
+        // var temp_product=props.location.state;
         temp_product.cart_counter=1;
         console.log(temp_product);
-        let tempCart=JSON.parse(localStorage.Cart);
+        let tempCart=JSON.parse(localStorage[localStorage.CurrentEmail]);
         tempCart.push(temp_product);
-        localStorage.setItem("Cart",JSON.stringify(tempCart));
-        props.history.push("/checkout");
-        // Set_currentItem([...currentItem,temp_product])
-        
 
-        
-        
+        localStorage.setItem(localStorage.CurrentEmail,JSON.stringify(tempCart));
+        props.history.push("/checkout");
+
     }
-    
-   
+
+
     useEffect(() => {
-    Set_currentItem(JSON.parse(localStorage["Cart"]));
-    
+    Set_currentItem(JSON.parse(localStorage[localStorage.CurrentEmail]));
+    if(localStorage[localStorage.CurrentEmail]){
         var temp_arr=props.location.state;
-        let cart=JSON.parse(localStorage["Cart"])
+        let cart=JSON.parse(localStorage[localStorage.CurrentEmail])
         for(let i=0;i<cart.length;i++){
             let temp=cart[i];
-            console.log("crt",temp.id)
-            console.log("match",temp_arr.id)
             if(temp.id===temp_arr.id){
                 setInCart(true);
                 break;
             }
         }
+    }
 }, []);
 
     useEffect(() => {
-        console.log("State CArt",currentItem);
-         localStorage.setItem("Cart",JSON.stringify(currentItem));     
-         
+
+         localStorage.setItem(localStorage.CurrentEmail,JSON.stringify(currentItem));
+
     }, [currentItem]);
 
-     let temp = props.location.state;
+
     return (
-        <>  <div className="product">
+<>
+       {!temp ? (<img src="https://media.giphy.com/media/hWZBZjMMuMl7sWe0x8/giphy.gif" className="loader"/>) :
+
+       (
+       <>
+       <div className="product">
                 <div className="product_details">
                         <p className="detail_title">{temp.title}</p>
                     <span className="price_detail">Special Price</span>
@@ -61,23 +78,27 @@ function Item_Details(props) {
                     <span className="description_title">Description</span>
                     <br />
                         <p className="description_detail">{temp.description}</p>
-                
+
 
                 </div>
                 <img src={temp.image} className="img" />
 
             </div>
             <div className="button_panel">
-
             {inCart ? (<button className="button_design"  id="go_to_cart" onClick={()=>{props.history.push("/checkout")}}>Go to Cart</button>) : (
-                <button className="button_design" id="add_to_cart" onClick={cart_submitHandle}>🛒 Add to Cart</button>  
+                <button className="button_design" id="add_to_cart" onClick={cart_submitHandle}>🛒 Add to Cart</button>
             )}
 
-            <button className="button_design" id="buy_now">⚡ Buy Now </button>
+            <button className="button_design" id="buy_now" onClick={cart_submitHandle}>⚡ Buy Now </button>
             </div>
+
+</>
+       )}
 
         </>
     );
-}
 
+
+
+}
 export default withRouter(Item_Details);
