@@ -10,9 +10,13 @@ function Item_Details(props) {
     const [inCart,setInCart]=useState(false);
     const [currentItem,Set_currentItem]=useState([]);
     const [temp,setdata]=useState();
+    // const [work,worker]=useState(search);
     useEffect(() => {
         fetchdata();
+
       }, []);
+
+
 
     const fetchdata = async () => {
         const data = await fetch(`https://fakestoreapi.com/products/${props.match.params.id}`);
@@ -31,7 +35,6 @@ function Item_Details(props) {
         console.log(temp_product);
         let tempCart=JSON.parse(localStorage[localStorage.CurrentEmail]);
         tempCart.push(temp_product);
-
         localStorage.setItem(localStorage.CurrentEmail,JSON.stringify(tempCart));
         props.history.push("/checkout");
 

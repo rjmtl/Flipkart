@@ -1,7 +1,8 @@
 import "./cart.css";
 import { useState, useEffect } from "react";
 
-function Cart({ cart_display_counter, setter, final }) {
+
+function Cart({ cart_display_counter, setter, final },props) {
   var sum = 0;
   var cart_sum = 0;
 
@@ -141,7 +142,7 @@ function Cart({ cart_display_counter, setter, final }) {
           </div>
 
         </div>
-        <div className="placeorder">
+        <div className="placeorder" >
   <p className="placeyourorder">Place Your Order</p>
 </div>
       </div>

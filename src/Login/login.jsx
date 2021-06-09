@@ -2,8 +2,9 @@ import "./login.css";
 import { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 
-function Login({ set_isloggedIn }) {
+function Login({ set_isloggedIn,tflag }) {
   var temp_data = [];
+  var name;
   if (localStorage.UserInfo && localStorage.UserInfo.length)
     temp_data = JSON.parse(localStorage.UserInfo);
 
@@ -34,15 +35,19 @@ function Login({ set_isloggedIn }) {
 
       if (value.email === temp.email && value.password === temp.password) {
         flag = true;
+        tflag=false;
         localStorage.setItem("CurrentUser", temp.name);
         localStorage.setItem("CurrentEmail", temp.email);
         localStorage.setItem("isloggedIn", true);
+        set_isloggedIn(true);
+
+        name=temp.name
         break;
       }
     }
 
     if (flag) {
-      alert("Login Successful");
+      alert(`Welcome ${name}`);
       set_isloggedIn(true);
       document.querySelector(".login").classList.remove("visible");
     } else {

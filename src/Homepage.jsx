@@ -1,26 +1,48 @@
 import { withRouter } from "react-router-dom";
 import "./Login/login.css";
 import { useEffect, useState } from "react";
+import {CartProvider} from "./Context/CartContext";
+import items_display from "./items_display"
 
-function Homepage({ isloggedIn, set_isloggedIn, cart_display_counter, history }) {
+function Homepage({
+  isloggedIn,
+  set_isloggedIn,
+  search,
+  Setsearch,
+  cart_display_counter,
+  history,
+  flag
+})
+{
+
+
   return (
-
     <div className="App">
       <div className="navbar">
-        <button className="flipkart_logo" onClick={()=>{history.push("/")}}></button>
+        <button
+          className="flipkart_logo"
+          onClick={() => {
+            history.push("/");
+          }}
+        ></button>
         <input
+          name="search"
           className="search_bar"
           placeholder="Search for products, brands and more"
+          value={search}
+          onChange={(e) => Setsearch(e.target.value)}
         ></input>
-        {localStorage.isloggedIn ? (
+        {isloggedIn ? (
           <button
             className="login_button"
             name="logout"
             onClick={() => {
               localStorage.removeItem("CurrentUser");
               localStorage.removeItem("CurrentEmail");
-              localStorage.removeItem("isloggedIn")
-              set_isloggedIn(true);
+              localStorage.removeItem("isloggedIn");
+              set_isloggedIn(false);
+              alert("Logged Off");
+              flag=true;
             }}
           >
             Logout
@@ -39,7 +61,6 @@ function Homepage({ isloggedIn, set_isloggedIn, cart_display_counter, history })
         )}
 
         <div className="cart_value_display">{cart_display_counter}</div>
-
 
         <button
           onClick={() => {

@@ -6,6 +6,7 @@ import Items_display from "./items_display";
 import Homepage from "./Homepage";
 import Item_Details from "./item_details/item_details";
 import Cart from "./Cart/cart";
+import Order from "./Cart/Order";
 
 function App() {
   let id;
@@ -15,6 +16,7 @@ function App() {
     flag = true;
   }
   const [cart_display_counter, setter] = useState(sum);
+  const [search, Setsearch] = useState("");
   const [isloggedIn, set_isloggedIn] = useState(flag);
   if (localStorage[localStorage.CurrentEmail]) {
     var temp_arr = JSON.parse(localStorage[localStorage.CurrentEmail]);
@@ -24,8 +26,15 @@ function App() {
     }
   }
   useEffect(() => {
+
     setter(sum);
   }, flag);
+
+  useEffect(()=>{
+    if(localStorage.isloggedIn) {
+set_isloggedIn(true);
+    }
+  },[]);
 
   return (
     <>
@@ -34,8 +43,11 @@ function App() {
           isloggedIn={isloggedIn}
           set_isloggedIn={set_isloggedIn}
           cart_display_counter={cart_display_counter}
+          search={search}
+          Setsearch={Setsearch}
+          flag={flag}
         />
-        <Login set_isloggedIn={set_isloggedIn} />
+        <Login set_isloggedIn={set_isloggedIn} tflag={flag} />
 
 
         <Switch>
@@ -43,8 +55,11 @@ function App() {
           <Cart cart_display_counter={cart_display_counter} setter={setter} final={sum} />
           </Route>
           {/* <Route exact path={`/products/:${id}`} id={id}  component={Product_Render} /> */}
-          <Route exact path="/" component={Items_display} />
+          <Route exact path="/">
+          <Items_display search={search}/>
+          </Route>
           <Route exact path="/products/:id" component={Item_Details} />
+          <Route exact path="/Order" component={Order}/>
 
         </Switch>
       </BrowserRouter>
