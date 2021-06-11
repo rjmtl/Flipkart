@@ -1,11 +1,11 @@
 import "./cart.css";
 import { useState, useEffect } from "react";
+import {withRouter} from "react-router-dom";
 
-
-function Cart({ cart_display_counter, setter, final },props) {
+function Cart({setter,history}) {
   var sum = 0;
   var cart_sum = 0;
-
+console.log(history);
   const [cart_data, setcart] = useState([]);
 
   if (localStorage[localStorage.CurrentEmail]) {
@@ -16,8 +16,6 @@ function Cart({ cart_display_counter, setter, final },props) {
       let total = price * cart_counter;
       sum = sum + total;
       cart_sum = cart_sum + cart_counter;
-      console.log(sum);
-      console.log("papa", cart_sum);
     }
   }
   const remove_handle = (index) => {
@@ -45,7 +43,6 @@ function Cart({ cart_display_counter, setter, final },props) {
   };
 
   useEffect(() => {
-    console.log(cart_sum);
     setter(cart_sum);
   }, cart);
 
@@ -140,14 +137,13 @@ function Cart({ cart_display_counter, setter, final },props) {
               .toString()
               .slice(0, 6)}`}</span>
           </div>
-
         </div>
-        <div className="placeorder" >
-  <p className="placeyourorder">Place Your Order</p>
-</div>
+        <div className="placeorder" onClick={()=>history.push("/Order")}>
+          <p className="placeyourorder">Place Your Order</p>
+        </div>
       </div>
     </>
   );
 }
 
-export default Cart;
+export default withRouter(Cart);

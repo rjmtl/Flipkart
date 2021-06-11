@@ -202,9 +202,14 @@ color:white;
 font-weight: 600;
 padding-top: 4.5%;
 margin-left: 32%;
+cursor: pointer;
 }
 
 .order{
 margin-left: 10%;
 /* margin-top: %; */
+}
+
+.orders{
+margin-left: 23%;
 }

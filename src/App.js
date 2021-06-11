@@ -9,8 +9,7 @@ import Cart from "./Cart/cart";
 import Order from "./Cart/Order";
 
 function App() {
-  let id;
-  var sum=0;
+  var sum = 0;
   var flag = false;
   if (!localStorage[localStorage.CurrentEmail]) {
     flag = true;
@@ -18,23 +17,23 @@ function App() {
   const [cart_display_counter, setter] = useState(sum);
   const [search, Setsearch] = useState("");
   const [isloggedIn, set_isloggedIn] = useState(flag);
-  if (localStorage[localStorage.CurrentEmail]) {
-    var temp_arr = JSON.parse(localStorage[localStorage.CurrentEmail]);
-    for (let i = 0; i < temp_arr.length; i++) {
-      let { cart_counter } = temp_arr[i];
-      sum = sum + cart_counter;
-    }
-  }
-  useEffect(() => {
 
+  useEffect(() => {
+    if (localStorage[localStorage.CurrentEmail]) {
+      var temp_arr = JSON.parse(localStorage[localStorage.CurrentEmail]);
+      for (let i = 0; i < temp_arr.length; i++) {
+        let { cart_counter } = temp_arr[i];
+        sum = sum + cart_counter;
+      }
+    }
     setter(sum);
   }, flag);
 
-  useEffect(()=>{
-    if(localStorage.isloggedIn) {
-set_isloggedIn(true);
+  useEffect(() => {
+    if (localStorage.isloggedIn) {
+      set_isloggedIn(true);
     }
-  },[]);
+  }, []);
 
   return (
     <>
@@ -49,18 +48,15 @@ set_isloggedIn(true);
         />
         <Login set_isloggedIn={set_isloggedIn} tflag={flag} />
 
-
         <Switch>
           <Route exact path="/checkout">
-          <Cart cart_display_counter={cart_display_counter} setter={setter} final={sum} />
+            <Cart setter={setter} />
           </Route>
-          {/* <Route exact path={`/products/:${id}`} id={id}  component={Product_Render} /> */}
           <Route exact path="/">
-          <Items_display search={search}/>
+            <Items_display search={search} />
           </Route>
           <Route exact path="/products/:id" component={Item_Details} />
-          <Route exact path="/Order" component={Order}/>
-
+          <Route exact path="/Order" component={Order} />
         </Switch>
       </BrowserRouter>
     </>

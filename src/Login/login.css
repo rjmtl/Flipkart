@@ -73,8 +73,6 @@ cursor: pointer;
     width: 250px;
     background-color: #2874F0;
     position: absolute;
-
-
 }
 
 .login_console{
@@ -156,6 +154,10 @@ height: 70%;
 padding-left: 5%;
 padding-top:10%;
 display: block;
+}
+.error{
+    color:red;
+font-size: 12px;
 }
 
 .user_name{
@@ -262,6 +264,3 @@ display: block;
     font-weight: 500
 };
 
-/* .signup{
-    padding: 50px;
-} */

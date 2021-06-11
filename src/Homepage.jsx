@@ -1,8 +1,6 @@
 import { withRouter } from "react-router-dom";
 import "./Login/login.css";
-import { useEffect, useState } from "react";
-import {CartProvider} from "./Context/CartContext";
-import items_display from "./items_display"
+
 
 function Homepage({
   isloggedIn,
@@ -11,11 +9,10 @@ function Homepage({
   Setsearch,
   cart_display_counter,
   history,
-  flag
+flag,
 })
+
 {
-
-
   return (
     <div className="App">
       <div className="navbar">
@@ -42,6 +39,7 @@ function Homepage({
               localStorage.removeItem("isloggedIn");
               set_isloggedIn(false);
               alert("Logged Off");
+              history.push("/");
               flag=true;
             }}
           >
