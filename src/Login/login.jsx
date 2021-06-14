@@ -127,34 +127,29 @@ if(exisemail&&isValid){
         error.name = false;
         setError(Err.validation_Err);
       }
-      if (!name.match("^[A-Za-z]+$")) {
-        Err.validation_Err = "Only Alphabets are allowed";
-        error.name = false;
-        setError(Err.validation_Err);
-      }
-
-      if (name.includes(" ")) {
+      else if (name.includes(" ")) {
         Err.validation_Err = "Spaces aren't Allowed";
         error.name = false;
         setError(Err.validation_Err);
       }
-      if (name.match("(?=.*[0-9])")) {
-        Err.validation_Err = "Numbers aren't allowed";
+
+      else if (!name.match("^[A-Za-z]+$")) {
+        Err.validation_Err = "Only Alphabets are allowed";
         error.name = false;
         setError(Err.validation_Err);
-      } else {
+      }
+       else {
         error.name = true;
         Err.validation_Err="";
-
-      setError(Err.validation_Err);
+         setError(Err.validation_Err);
     }}
     {
       if (email.length === 0) {
     Err.email_Err="This can't be blank"
-        error.email=false;
+      error.email=false;
 
     }
-    if (email.match((/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i))) {
+    else if (email.match((/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i))) {
       Err.email_Err=""
       error.email=true;
     }
@@ -171,15 +166,15 @@ set_email_Err(Err.email_Err);
         Err.pwErr = "Should contain atleast one number";
         error.password=false;
       }
-      if (!password.match("(?=.*[A-Z])")) {
+      else if (!password.match("(?=.*[A-Z])")) {
         Err.pwErr = "Should contain atleast one capital letter";
         error.password=false;
       }
-      if (!password.match("(?=.*[a-z])")) {
+      else if (!password.match("(?=.*[a-z])")) {
         Err.pwErr = "Should contain atleast one small letter";
         error.password=false;
       }
-      if (!password.match("(?=.*[!@#$%^&*])")) {
+      else if (!password.match("(?=.*[!@#$%^&*])")) {
         Err.pwErr = "Should contain atleast one special character";
         error.password=false;
       }
