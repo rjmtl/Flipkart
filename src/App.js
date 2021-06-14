@@ -7,6 +7,8 @@ import Homepage from "./Homepage";
 import Item_Details from "./item_details/item_details";
 import Cart from "./Cart/cart";
 import Order from "./Cart/Order";
+import Admin from "./Admin/admin";
+import AdminDisplay from "./Admin/admin_display";
 
 function App() {
   var sum = 0;
@@ -47,7 +49,6 @@ function App() {
           flag={flag}
         />
         <Login set_isloggedIn={set_isloggedIn} tflag={flag} />
-
         <Switch>
           <Route exact path="/checkout">
             <Cart setter={setter} />
@@ -57,6 +58,8 @@ function App() {
           </Route>
           <Route exact path="/products/:id" component={Item_Details} />
           <Route exact path="/Order" component={Order} />
+          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/admin_product_listing"component={AdminDisplay}/>
         </Switch>
       </BrowserRouter>
     </>

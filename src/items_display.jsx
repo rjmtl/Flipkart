@@ -5,6 +5,9 @@ import { CartConsumer } from "./Context/CartContext";
 
 function Items_display({ search }) {
   var tempItem;
+  var arr;
+const[admin_data,setter]=useState(JSON.parse(localStorage["Trial"]));
+console.log(admin_data)
   const [item, setItem] = useState();
   // const [temp,Setter]=
   var tempItem;
@@ -22,7 +25,7 @@ function Items_display({ search }) {
     const items = await data.json();
     setItem(items);
     callback(items);
-  };
+  } ;
 
   useEffect(() =>{
     let temp_prodct_arr=item;
@@ -34,9 +37,22 @@ function Items_display({ search }) {
     }
   }, [search]);
 
+  if(item){
+    arr=item.concat(admin_data);
+    // setItem(arr);
+  }
+
+
+
+
+
+
+  // setItem(arr);
+
   return (
+
     <>
-      {!item ? (
+      {!arr ? (
         <img
           src="https://media.giphy.com/media/hWZBZjMMuMl7sWe0x8/giphy.gif"
           alt="loading"
@@ -44,7 +60,7 @@ function Items_display({ search }) {
         />
       ) : (
         <div className="itemList">
-          {item.map((value, index) => (
+          {arr.map((value, index) => (
             <Link
               to={{
                 pathname: `/products/${index + 1}`,
