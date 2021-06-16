@@ -43,6 +43,9 @@ function Item_Details(props) {
   };
 
   useEffect(() => {
+// if(localStorage["Trial"]){
+// let adminArr=JSON.parse(localStorage["Trial"])
+// }
     Set_currentItem(JSON.parse(localStorage[localStorage.CurrentEmail]));
     if (localStorage[localStorage.CurrentEmail]) {
       var temp_arr = props.location.state;

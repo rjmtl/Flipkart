@@ -1,4 +1,5 @@
 import { withRouter } from "react-router-dom";
+import { useEffect } from "react";
 import "./Login/login.css";
 
 function Homepage({
@@ -10,13 +11,9 @@ function Homepage({
   history,
   flag,
 })
-useEffect(() => {
-  effect
-  return () => {
-    cleanup
-  }
-}, [input])
- {
+{
+
+
   return (
     <div className="App">
       <div className="navbar">
@@ -74,6 +71,14 @@ useEffect(() => {
           >
             🛒 Cart
           </button>
+        </div>
+        <div className="admin_logout">
+          <button className="login_button" onClick={()=>{
+              alert("Logged Off Successfully");
+              history.push("/admin_login");
+              localStorage.setItem("isAdminLoggedIn",false);
+              document.querySelector(".admin_logout").classList.remove("visible");
+          }}>Logout</button>
         </div>
       </div>
     </div>

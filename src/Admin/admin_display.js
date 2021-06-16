@@ -54,10 +54,11 @@ function AdminDisplay(props) {
   };
 
   useEffect(() => {
-    if (!localStorage["isAdminLoggedIn"]) {
+    if (!localStorage["isAdminLoggedIn"]===false) {
       props.history.push("/admin_login");
     }
-    document.querySelector(".login_cart").classList.add("hidden")
+    document.querySelector(".login_cart").classList.add("hidden");
+    document.querySelector(".admin_logout").classList.add("visible");
   }, []);
 
 

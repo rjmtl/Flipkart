@@ -40,12 +40,14 @@ console.log(temp.email,temp.password);
   };
 
   useEffect(() => {
-      document.querySelector(".login_cart").classList.add("hidden")
+      document.querySelector(".login_cart").classList.add("hidden");
+      document.querySelector(".admin_logout").classList.remove("visible");
+
   }, [])
   return (
     <>
       <div className="admin_main">
-        <div className="login_main">
+        <div className="admin_login_main">
           <div className="login_inner">
             <div className="login_visible">
               <span className="login_span">Admin Login</span>
@@ -77,9 +79,14 @@ console.log(temp.email,temp.password);
 
                   <br />
                   <br />
-                  <br />
-                  <br />
+                  <br/>
                   <button className="login_panel_button">Admin Login</button>
+                  <br/>
+                  <br/>
+                  <button type="button" className="login_panel_button" onClick={()=>{
+                    props.history.push("/");
+
+                  }}>Login as User</button>
                 </form>
               </div>
             </div>

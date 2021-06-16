@@ -124,7 +124,12 @@ background-color: red;
 font-size: 12px;
 position: absolute;
 }
-
+.admin_logout{
+  display:none;
+}
+.admin_logout.visible{
+  display: block;
+}
 .cards{
   display: flex;
   flex-direction: column;

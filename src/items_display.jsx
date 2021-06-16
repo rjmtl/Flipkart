@@ -42,12 +42,10 @@ console.log(admin_data)
     // setItem(arr);
   }
 
-
-
-
-
-
-  // setItem(arr);
+  useEffect(() => {
+    document.querySelector(".login_cart").classList.remove("hidden");
+    document.querySelector(".admin_logout").classList.remove("visible");
+  }, [])
 
   return (
 

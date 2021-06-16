@@ -221,7 +221,7 @@ function Signup() {
 
         <button className="login_panel_button">Signup</button>
         <br />
-        {/* <button
+        <button
                 type="button"
                 className="existing_user"
                 onClick={() => {
@@ -240,7 +240,7 @@ function Signup() {
                 }}
               >
                  Existing User? Log in
-              </button> */}
+              </button>
       </form>
     </div>
   );
