@@ -28,7 +28,6 @@ margin-top: 20%;
 margin-left: 11%;
 cursor: pointer;
 
-
 }
 
 .login_main{
@@ -42,6 +41,14 @@ cursor: pointer;
     border-radius: 3%;
 }
 
+.admin_main{
+    display: block;
+    position: absolute;
+    background-color:rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    opacity: 10;
+}
 .login_signup{
     width: 40%;
     height: 65%;

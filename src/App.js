@@ -9,6 +9,7 @@ import Cart from "./Cart/cart";
 import Order from "./Cart/Order";
 import Admin from "./Admin/admin";
 import AdminDisplay from "./Admin/admin_display";
+import Admin_login from "./Login/admin_login";
 
 function App() {
   var sum = 0;
@@ -58,6 +59,7 @@ function App() {
           </Route>
           <Route exact path="/products/:id" component={Item_Details} />
           <Route exact path="/Order" component={Order} />
+          <Route exact path="/admin_login" component={Admin_login}/>
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/admin_product_listing"component={AdminDisplay}/>
         </Switch>

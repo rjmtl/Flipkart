@@ -22,10 +22,13 @@ function Admin(props) {
       image,
       description: desc,
     };
-
     setItem([...item, data]);
     alert("Item Added Successfully");
     document.querySelector(".main_product").classList.remove('visible');
+    setImage("");
+    setName("");
+    setPrice("");
+    setDesc("");
   };
 
   useEffect(() => {
@@ -33,6 +36,12 @@ function Admin(props) {
     console.log("running");
     console.log(temp_arr);
   }, [item]);
+  useEffect(() => {
+    if(!localStorage["isAdminLoggedIn"]){
+      props.history.push("/admin_login")
+    }
+    document.querySelector(".login_cart").classList.add("hidden")
+  }, [])
 
   const image_handle = (e) => {
     var image = e.target.files[0];

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import Signup from "./signup";
 
-function Login({ set_isloggedIn}) {
+function Login(props,{ set_isloggedIn }) {
   var temp_data = [];
   var name;
   if (localStorage.UserInfo && localStorage.UserInfo.length)
@@ -46,13 +46,12 @@ function Login({ set_isloggedIn}) {
     setPassword("");
   };
 
-
   useEffect(() => {
     setter(JSON.parse(localStorage["UserInfo"]));
   }, []);
 
-
   return (
+
     <div className="login">
       <div className="login_main">
         <div className="login_signup">
@@ -71,6 +70,7 @@ function Login({ set_isloggedIn}) {
                 Get access to your Orders, Wishlist and Recommendations
               </span>
             </div>
+
             <div className="signup_visible">
               <span className="login_span">Looks like you're new here!</span>
 
@@ -80,6 +80,7 @@ function Login({ set_isloggedIn}) {
             </div>
             <div className="graphic"></div>
           </div>
+
           <div className="login_console">
             <div className="inner_login_panel">
               <form className="no" onSubmit={submithandle}>
@@ -117,7 +118,15 @@ function Login({ set_isloggedIn}) {
                 <br />
                 <br />
                 <button className="login_panel_button">Login</button>
+                <br />
+                <br />
+                <button type="button" onClick={()=>{
+                  props.history.push("/admin");
+                  document.querySelector(".login").classList.remove("visible");
+
+                }} className="login_panel_button">Admin Login</button>
               </form>
+
               <button
                 type="button"
                 className="signup"
@@ -139,7 +148,7 @@ function Login({ set_isloggedIn}) {
                 New to Flipkart? Create an account
               </button>
             </div>
-            <Signup/>
+            <Signup />
           </div>
         </div>
       </div>
