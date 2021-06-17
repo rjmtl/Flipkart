@@ -2,12 +2,13 @@
     width: 100vw;
     height: 100vh;
     background-color: #F1F3F6;
-    overflow-y: scroll;
+    overflow-y: hidden;
 
 }
 
 .cart_div{
     width: 54vw;
+    max-height: 85%;
     /* height: 70vh; */
     background-color: white;
     margin-left: 10%;
@@ -15,7 +16,7 @@
     position: absolute;
     z-index: 10;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
-
+    overflow-y: scroll;
 }
 
 .price{

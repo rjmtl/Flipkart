@@ -15,16 +15,15 @@ console.log(admin_data)
     tempItem=items;
   }
   useEffect(() => {
-    fetchdata(initialProductsSet);
+    fetchdata();
     tempItem=item;
     console.log(search);
   }, []);
 
-  const fetchdata = async (callback) => {
+  const fetchdata = async () => {
     const data = await fetch("https://fakestoreapi.com/products");
     const items = await data.json();
     setItem(items);
-    callback(items);
   } ;
 
   useEffect(() =>{

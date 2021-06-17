@@ -54,7 +54,7 @@ function AdminDisplay(props) {
   };
 
   useEffect(() => {
-    if (!localStorage["isAdminLoggedIn"]===false) {
+    if (localStorage["isAdminLoggedIn"]===false) {
       props.history.push("/admin_login");
     }
     document.querySelector(".login_cart").classList.add("hidden");
@@ -134,6 +134,7 @@ function AdminDisplay(props) {
         {arr.map((value, index) => (
           <div className="Admin_Display">
             <img src={value.image} className="image" />
+            <br/>
             <span className="display_title">{value.title}</span>
             <br />
             <span className="display_details_price">{`₹ ${value.price}`}</span>

@@ -35,7 +35,6 @@ function Item_Details(props) {
   const cart_submitHandle = () => {
     var temp_product = temp;
     temp_product.cart_counter = 1;
-    console.log(temp_product);
     let tempCart = JSON.parse(localStorage[localStorage.CurrentEmail]);
     tempCart.push(temp_product);
     localStorage.setItem(localStorage.CurrentEmail, JSON.stringify(tempCart));
