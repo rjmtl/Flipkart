@@ -5,12 +5,16 @@ import { CartConsumer } from "./Context/CartContext";
 
 function Items_display({ search }) {
   var tempItem;
+var temparr=[];
+if(localStorage["Trial"]){
+  temparr=JSON.parse(localStorage["Trial"]);
+}
   var arr;
-const[admin_data,setter]=useState(JSON.parse(localStorage["Trial"]));
+const[admin_data,setter]=useState(temparr);
 console.log(admin_data)
   const [item, setItem] = useState();
   // const [temp,Setter]=
-  var tempItem;
+
   const initialProductsSet=(items)=>{
     tempItem=items;
   }
@@ -44,6 +48,7 @@ console.log(admin_data)
   useEffect(() => {
     document.querySelector(".login_cart").classList.remove("hidden");
     document.querySelector(".admin_logout").classList.remove("visible");
+    document.querySelector(".login_button").classList.remove("hidden");
   }, [])
 
   return (
@@ -78,7 +83,7 @@ console.log(admin_data)
           ))}
         </div>
       )}
-      ;
+
     </>
   );
 }

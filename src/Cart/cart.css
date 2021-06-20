@@ -164,7 +164,7 @@ transform: scale(1.02);
 }
 
 .total_price{
-    padding-left: 40%;
+    padding-left: 30%;
     font-weight: 500;
     font-size: 15px;
 
@@ -185,7 +185,7 @@ transform: scale(1.02);
 }
 
 .price_total{
-    padding-left: 55%;
+    padding-left: 40%;
     font-weight: 600;
     font-size: 17px;
 }

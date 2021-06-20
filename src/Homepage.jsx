@@ -76,7 +76,7 @@ function Homepage({
           <button className="login_button" onClick={()=>{
               alert("Logged Off Successfully");
               history.push("/admin_login");
-              localStorage.setItem("isAdminLoggedIn",false);
+              localStorage.removeItem("isAdminLoggedIn");
               document.querySelector(".admin_logout").classList.remove("visible");
           }}>Logout</button>
         </div>

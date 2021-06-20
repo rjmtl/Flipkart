@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./admin.css";
 
 function AdminDisplay(props) {
@@ -54,7 +55,7 @@ function AdminDisplay(props) {
   };
 
   useEffect(() => {
-    if (localStorage["isAdminLoggedIn"]===false) {
+    if (!localStorage["isAdminLoggedIn"]) {
       props.history.push("/admin_login");
     }
     document.querySelector(".login_cart").classList.add("hidden");
@@ -64,6 +65,7 @@ function AdminDisplay(props) {
 
   return (
     <>
+
       {/* <h1>Product Listing</h1> */}
       <div className="main_product">
         <br />
@@ -75,6 +77,7 @@ function AdminDisplay(props) {
         >
           x
         </span>
+
         <form
           className="add_product"
           onSubmit={(e) => {
@@ -132,18 +135,32 @@ function AdminDisplay(props) {
 
       <div className="main_admin">
         {arr.map((value, index) => (
+
+
           <div className="Admin_Display">
+
+          {/* <Link
+              to={{
+                pathname: `admin_product_listing/products/${index-1}`,
+                state: value,
+              }}
+              style={{
+            textDecoration: "inherit",
+          color:"black"}}
+            > */}
             <img src={value.image} className="image" />
             <br/>
             <span className="display_title">{value.title}</span>
             <br />
             <span className="display_details_price">{`₹ ${value.price}`}</span>
             <br />
-            <br />
+            <br/>
             <button
               className="edit_buttons"
               onClick={() => {
                 deletehandle(index);
+                document.querySelector("#snackbar").classList.add("show");
+                setTimeout(()=>{document.querySelector("#snackbar").classList.remove("show");},3000)
               }}
             >
               Delete
@@ -159,10 +176,15 @@ function AdminDisplay(props) {
               Edit{" "}
             </button>
             <br />
+            {/* </Link> */}
+
           </div>
+
         ))}
+            {/* <div className="floating_desc"></div> */}
+          <div id="snackbar">Deleted</div>
       </div>
-    </>
+              </>
   );
 }
 

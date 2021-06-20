@@ -78,10 +78,17 @@
   #buy_now{
     background-color:#FB641B ;
   }
-
+#buy_now:active{
+background-color: rgb(243, 172, 146);
+}
   #add_to_cart{
     background-color: #FF9F00;
   }
+
+#add_to_cart:active1{
+background-color: rgb(226, 226, 161);
+
+}
 
   #go_to_cart{
     background-color: rgb(104, 65, 114);
@@ -109,7 +116,14 @@
     font-size: 85%;
     font-weight:700;
     cursor: pointer;
+    transition: transform 0.2s;
+}
 
+.button_design:hover{
+  transform: scale(1.07);
+  border-radius: 2%;
+
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
 }
 
 .loader{

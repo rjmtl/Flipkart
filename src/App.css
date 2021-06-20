@@ -90,6 +90,9 @@
     margin-bottom: 5px;
 }
 
+.login_button.hidden{
+  display: none;
+}
 .cart{
   /* position: fixed; */
   color:rgb(255, 255, 255);

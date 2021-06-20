@@ -51,6 +51,7 @@ console.log(history);
       var arr = JSON.parse(localStorage[localStorage.CurrentEmail]);
       setcart(arr);
     }
+    document.querySelector(".login_button").classList.add("hidden");
   }, []);
 
   return (
@@ -116,7 +117,7 @@ console.log(history);
             <span className="price_item">{`Price (${cart_data.length} item)`}</span>
             <span className="total_price">{`₹ ${sum
               .toString()
-              .slice(0, 6)}`}</span>
+              .slice(0, 15)}`}</span>
             <br />
           </div>
           <br />
@@ -135,7 +136,7 @@ console.log(history);
             <span className="final_price">Total</span>
             <span className="price_total">{`₹ ${sum
               .toString()
-              .slice(0, 6)}`}</span>
+              .slice(0, 15)}`}</span>
           </div>
         </div>
         <div className="placeorder" onClick={()=>history.push("/Order")}>

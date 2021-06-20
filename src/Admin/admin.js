@@ -38,7 +38,7 @@ function Admin(props) {
     localStorage.setItem("Trial", JSON.stringify(item));
   }, [item]);
   useEffect(() => {
-    if (localStorage["isAdminLoggedIn"] === false) {
+    if (!localStorage["isAdminLoggedIn"]) {
       props.history.push("/admin_login");
     }
     document.querySelector(".login_cart").classList.add("hidden");
