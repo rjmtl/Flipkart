@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import Signup from "./signup";
 
-function Login(props,{ set_isloggedIn }) {
+function Login(props) {
   var temp_data = [];
+
   var name;
   if (localStorage.UserInfo && localStorage.UserInfo.length)
     temp_data = JSON.parse(localStorage.UserInfo);
@@ -28,7 +29,7 @@ function Login(props,{ set_isloggedIn }) {
         localStorage.setItem("CurrentUser", temp.username);
         localStorage.setItem("CurrentEmail", temp.email);
         localStorage.setItem("isloggedIn", true);
-        set_isloggedIn(true);
+        props.set_isloggedIn(true);
 
         name = temp.username;
         break;
@@ -37,7 +38,7 @@ function Login(props,{ set_isloggedIn }) {
 
     if (flag) {
       alert(`Welcome ${name}`);
-      set_isloggedIn(true);
+      props.set_isloggedIn(true);
       document.querySelector(".login").classList.remove("visible");
     } else {
       alert("Invalid User");

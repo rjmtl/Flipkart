@@ -11,13 +11,12 @@ function Item_Details(props) {
   const [temp, setdata] = useState();
   // const [work,worker]=useState(search);
   useEffect(() => {
-    if (props.match.params.id < 21)
-    fetchdata();
+    if (props.match.params.id < 21) fetchdata();
     else {
       let index = props.match.params.id - 21;
       if (localStorage["Trial"]) {
         let arr = JSON.parse(localStorage["Trial"]);
-        let item=arr[index];
+        let item = arr[index];
         setdata(item);
       }
     }
@@ -42,18 +41,21 @@ function Item_Details(props) {
   };
 
   useEffect(() => {
-// if(localStorage["Trial"]){
-// let adminArr=JSON.parse(localStorage["Trial"])
-// }
+    // if(localStorage["Trial"]){
+    // let adminArr=JSON.parse(localStorage["Trial"])
+    document.querySelector(".login_button").classList.add("hidden");
+    // }
     Set_currentItem(JSON.parse(localStorage[localStorage.CurrentEmail]));
     if (localStorage[localStorage.CurrentEmail]) {
       var temp_arr = props.location.state;
       let cart = JSON.parse(localStorage[localStorage.CurrentEmail]);
       for (let i = 0; i < cart.length; i++) {
         let temp = cart[i];
-        if (temp.id === temp_arr.id) {
-          setInCart(true);
-          break;
+        if (temp.id) {
+          if (temp.id === temp_arr.id) {
+            setInCart(true);
+            break;
+          }
         }
       }
     }

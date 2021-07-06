@@ -135,19 +135,8 @@ function AdminDisplay(props) {
 
       <div className="main_admin">
         {arr.map((value, index) => (
-
-
           <div className="Admin_Display">
 
-          {/* <Link
-              to={{
-                pathname: `admin_product_listing/products/${index-1}`,
-                state: value,
-              }}
-              style={{
-            textDecoration: "inherit",
-          color:"black"}}
-            > */}
             <img src={value.image} className="image" />
             <br/>
             <span className="display_title">{value.title}</span>

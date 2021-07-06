@@ -49,6 +49,19 @@ console.log(admin_data)
     document.querySelector(".login_cart").classList.remove("hidden");
     document.querySelector(".admin_logout").classList.remove("visible");
     document.querySelector(".login_button").classList.remove("hidden");
+//     fetch("https://amazon-price1.p.rapidapi.com/upcToAsin?marketplace=ES&upc=%3CREQUIRED%3E", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-key": "47746fd695msha4342db14c28a4ap1d775fjsnba196ad0c838",
+// 		"x-rapidapi-host": "amazon-price1.p.rapidapi.com"
+// 	}
+// })
+// .then(response => {
+// 	console.log(response);
+// })
+// .catch(err => {
+// 	console.error(err);
+// });
   }, [])
 
   return (
