@@ -51,7 +51,7 @@ function Item_Details(props) {
       let cart = JSON.parse(localStorage[localStorage.CurrentEmail]);
       for (let i = 0; i < cart.length; i++) {
         let temp = cart[i];
-        if (temp.id) {
+        if (temp) {
           if (temp.id === temp_arr.id) {
             setInCart(true);
             break;

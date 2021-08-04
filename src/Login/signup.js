@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 function Signup() {
   var temp_data = [];
   if (localStorage.UserInfo && localStorage.UserInfo.length)
@@ -21,8 +21,7 @@ function Signup() {
   const [validation_error, setError] = useState();
   const [email_Err, set_email_Err] = useState();
   const [pw_Err, set_pw_Err] = useState();
-  const [cpw_Err, set_cpw_Err] = useState();y
-  y
+  const [cpw_Err, set_cpw_Err] = useState();
   const signup_submit_handle = (e) => {
     e.preventDefault();
     let exisemail = false;
@@ -223,25 +222,23 @@ function Signup() {
         <button className="login_panel_button">Signup</button>
         <br />
         <button
-                type="button"
-                className="existing_user"
-                onClick={() => {
-                  document
-                    .querySelector(".inner_signup_panel")
-                    .classList.remove("visible");
-                  document
-                    .querySelector(".inner_login_panel")
-                    .classList.remove("hidden");
-                  document
-                    .querySelector(".signup_visible")
-                    .classList.remove("visible");
-                  document
-                    .querySelector(".login_visible")
-                    .classList.remove("hidden");
-                }}
-              >
-                 Existing User? Log in
-              </button>
+          type="button"
+          className="existing_user"
+          onClick={() => {
+            document
+              .querySelector(".inner_signup_panel")
+              .classList.remove("visible");
+            document
+              .querySelector(".inner_login_panel")
+              .classList.remove("hidden");
+            document
+              .querySelector(".signup_visible")
+              .classList.remove("visible");
+            document.querySelector(".login_visible").classList.remove("hidden");
+          }}
+        >
+          Existing User? Log in
+        </button>
       </form>
     </div>
   );

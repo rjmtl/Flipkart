@@ -9,6 +9,7 @@ function Admin_login(props) {
 
   if (localStorage["admin_credentials"])
     temp_Arr = JSON.parse(localStorage["admin_credentials"]);
+    console.log(temp_Arr)
   const Submithandle = (e) => {
       console.log(temp_Arr);
     e.preventDefault();
@@ -16,9 +17,11 @@ function Admin_login(props) {
       email,
       password,
     };
+    // localStorage.setItem("admin_credentials",JSON.stringify(data))
+    console.log(data);
     let temp=temp_Arr;
 
-console.log(data.email,data.password);
+// console.log(data.email,data.password);
 for(let i=0;i<temp_Arr.length;i++){
 temp=temp_Arr[i];
 console.log(temp.email,temp.password);

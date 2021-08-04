@@ -2,7 +2,8 @@ import React from "react";
 import { useState,useEffect } from "react";
 import "./../item_details/item_details.css"
 
-function Admin_Product(props){
+function Admin_Product(props)
+{
     let temp=[];
 let id=props.match.params.id;
     if(localStorage["Trial"]);

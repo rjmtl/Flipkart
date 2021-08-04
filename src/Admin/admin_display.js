@@ -64,9 +64,9 @@ function AdminDisplay(props) {
 
 
   return (
-    <>
+    <> 
 
-      {/* <h1>Product Listing</h1> */}
+      
       <div className="main_product">
         <br />
         <span
